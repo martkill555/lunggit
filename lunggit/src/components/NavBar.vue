@@ -19,7 +19,7 @@
 
     
 
-    <b-link href="/Main"> <b-button variant="primary">Login</b-button></b-link>
+    <b-link href="/Main.vue"> <b-button variant="primary">Login</b-button></b-link>
   </b-form>
     <b-collapse id="nav-collapse" is-nav>
   

@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     
-    <NavBar msg="Welcome to Your Vue.js App"/>
+    <NavBar msg="Welcome to Your Vue.js Main"/>
     
     
       
     
    
-    <Footer msg="Welcome to Your Vue.js App"/>
+    <Footer msg="Welcome to Your Vue.js Main"/>
   </div>
   
 </template>
@@ -17,7 +17,7 @@ import  NavBar from './components/NavBar.vue'
 import  Footer from './components/Footer.vue'
 
 export default {
-  name: 'App',
+  name: 'Main',
   components: {
     NavBar,
     Footer

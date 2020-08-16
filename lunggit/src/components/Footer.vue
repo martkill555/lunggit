@@ -1,11 +1,13 @@
-<template>
-  <div>
-  <b-navbar toggleable="lg" type="dark" variant="dark">
-    <b-navbar-brand href="#"   class="mx-auto">Lungscan - KMUTT @2020</b-navbar-brand>
+<template v-slot:footer>
+<div id="app" >
+    
+ <b-card bg-variant="dark" text-variant="white" footer-class="footer">
+  <b-card-text>
+    Lungscan @KMUTT, 2020
+  </b-card-text>
 
-   
-  </b-navbar>
-</div>
+ </b-card>
+    </div>
 </template>
 
 <script>
@@ -28,19 +30,31 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
+<style lang="scss">
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+
+#nav {
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
 }
 </style>

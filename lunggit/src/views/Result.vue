@@ -37,7 +37,7 @@
     <b-col sm="12" class="my-4">
        
 
- <b-button v-b-toggle.collapse-a.collapse-b variant="danger" pill size="lg">View Result</b-button>
+ <b-button v-b-toggle.collapse-a.collapse-b variant="danger" pill size="lg" v-b-tooltip.hover title="Click to show screen result">View Result</b-button>
    
     <b-collapse id="collapse-a" class="mt-2">
      <h5 class="my-4">Detect    :  <b-badge variant="warning">Positive</b-badge><b-icon icon="exclamation-circle-fill" variant="danger"></b-icon></h5>
@@ -74,7 +74,7 @@
       <h4 class="my-4">‘Emperical confirmation by <b-badge variant="info">Specialist</b-badge> is required’</h4>
         
   
-  <b-col lg="mx-auto"><router-link to="/Main"> <b-button variant="outline-danger" size="lg"><b-icon icon="cloud-arrow-up-fill" aria-hidden="true"></b-icon>Discard </b-button></router-link>       <router-link to="/Main"> <b-button variant="success" size="lg" ><b-icon icon="cloud-arrow-up-fill" aria-hidden="true"></b-icon>Record </b-button></router-link></b-col>
+  <b-col lg="mx-auto"><router-link to="/Main"> <b-button variant="outline-danger" size="lg" v-b-tooltip.hover title="Click to discard your result"  ><b-icon icon="x-circle" variant="danger"></b-icon>Discard </b-button></router-link>       <router-link to="/Main"> <b-button variant="success" size="lg" v-b-tooltip.hover title="Click to save your result"><b-icon icon="cloud-plus-fill" aria-hidden="true"></b-icon>Record </b-button></router-link></b-col>
 
   
 

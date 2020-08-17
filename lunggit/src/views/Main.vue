@@ -22,7 +22,7 @@
       In 2019, Tuberculosis remains one of the top 10 causes of death worldwide. Millions of people continue to fall sick from tuberculosis each year(GHO,2018). Furthermore, the number of medical staff is not enough to look after patients thoroughly. So, to decrease the burden of medical staff, the Lung Scan project will be using the abilities of an AI technology based on a website to implement a feature that aims to help medical staff who want to diagnose tuberculosis using x-ray film
     </p>
 
-     <b-col lg="mx-auto"><router-link to="/Screen"> <b-button variant="primary" size="lg"><b-icon icon="cloud-arrow-up-fill" aria-hidden="true"></b-icon>Lung Screen </b-button></router-link>       <router-link to="/History"> <b-button variant="success" size="lg" ><b-icon icon="cloud-arrow-up-fill" aria-hidden="true"></b-icon>History </b-button></router-link></b-col>
+     <b-col lg="mx-auto"><router-link to="/Screen"> <b-button variant="primary" size="lg"><b-icon icon="tv" aria-hidden="true"></b-icon>Lung Screen </b-button></router-link>       <router-link to="/History"> <b-button variant="success" size="lg" ><b-icon icon="clipboard-data" aria-hidden="true"></b-icon>History </b-button></router-link></b-col>
 
   
     

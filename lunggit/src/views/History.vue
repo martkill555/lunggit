@@ -38,8 +38,8 @@
       
     >
      <template v-slot:cell(action)="row">
-        <b-button size="sm" @click="row.toggleDetails" class="mr-2">
-          {{ row.detailsShowing ? 'Hide' : 'Show'}} Details
+        <b-button size="sm" @click="row.toggleDetails" class="mr-2" v-b-tooltip.hover title="Click to show more information">
+          {{ row.detailsShowing ? 'Hide' : 'More'}} Infomation
         </b-button>
 
        
@@ -47,18 +47,69 @@
       </template>
     <template v-slot:row-details="row">
         <b-card>
+
+ <b-row class="mb-2">
+            <b-col  class="mx-auto"><h5>Case ID: <b-badge variant="danger">{{ row.item.caseID }}</b-badge></h5></b-col>
+           
+             </b-row>
+
+          
           <b-row class="mb-2">
-            <b-col sm="3" class="text-sm-right"><b>Age:</b></b-col>
-            <b-col>{{ row.item.age }}</b-col>
+            <b-col sm="3" class="text-sm-right"><b>Name:</b></b-col>
+            <b-col>{{ row.item.name }}</b-col>
           </b-row>
+          <b-row class="mb-2">
+            <b-col sm="3" class="text-sm-right"><b>Date:</b></b-col>
+            <b-col>{{ row.item.date }}</b-col>
+          </b-row>
+            <b-row class="mb-2">
+            <b-col sm="3" class="text-sm-right"><b>Program Detect:</b></b-col>
+            <b-col  >{{ row.item.detect }} ({{ row.item.detectDate }})</b-col>
+             </b-row>
+
+
 
           <b-row class="mb-2">
-            <b-col sm="3" class="text-sm-right"><b>Is Active:</b></b-col>
-            <b-col>{{ row.item.isActive }}</b-col>
+            <b-col sm="3" class="text-sm-right"><b>Specialist Comment:</b></b-col>
+            <b-col>{{ row.item.comment }}</b-col>
           </b-row>
 
-          <router-link to="/ViewProfile"> <b-button variant="info" ><b-icon icon="chat-text-fill" aria-hidden="true"></b-icon>Comment </b-button></router-link>
-        </b-card>
+        
+
+           <b-button variant="info" @click="$bvModal.show('modal-scoped')" ><b-icon icon="chat-text-fill" aria-hidden="true"></b-icon>Comment </b-button>
+      
+       <b-modal id="modal-scoped">
+    <template v-slot:modal-header="{ close }">
+      <!-- Emulate built in modal header close button action -->
+      <b-button size="sm" variant="outline-danger" @click="close()">
+        Close Modal
+      </b-button>
+      <h5>Modal Header</h5>
+    </template>
+
+    <template v-slot:default="{ hide }">
+      <p>Modal Body with button</p>
+      <b-button @click="hide()">Hide Modal</b-button>
+    </template>
+
+    <template v-slot:modal-footer="{ ok, cancel, hide }">
+      <b>Custom Footer</b>
+      <!-- Emulate built in modal footer ok and cancel button actions -->
+      <b-button size="sm" variant="success" @click="ok()">
+        OK
+      </b-button>
+      <b-button size="sm" variant="danger" @click="cancel()">
+        Cancel
+      </b-button>
+      <!-- Button with custom close trigger value -->
+      <b-button size="sm" variant="outline-secondary" @click="hide('forget')">
+        Forget it
+      </b-button>
+    </template>
+  </b-modal>
+
+
+   </b-card>
       </template>
     </b-table>
 
@@ -98,23 +149,23 @@ export default {
           sortBy: 'age',
         sortDesc: false,
         fields: [
-            { key: 'name', sortable: true },
+          { key: 'name', sortable: true },
           { key: 'caseID', sortable: true },          
-          { key: 'date', sortable: true },
-          { key: 'isActive', sortable: true },
-          { key: 'detect', sortable: true },
-          { key: 'comment', sortable: true },
-          { key: 'action', sortable: false }
+          { key: 'date', sortable: true },          
+          { key: 'detect', sortable: true ,variant: 'danger'},
+          { key: 'comment', sortable: true ,variant: 'warning'},
+          { key: 'action', sortable: false  },
+          //{ key: 'detectDate', hidden }
         ],
         items: [
-          { isActive: true, date: '20/05/2020', name: 'Dickerson', caseID: 'Macdonald', detect: 'Positive', comment: '-- --' },
-          { isActive: false, date: '25/08/2020', name: 'Larsen', caseID: 'Shaw' , detect: 'Negative', comment: '-- --'},
-          { isActive: false, date: '2/12/2020', name: 'Geneva', caseID: 'Wilson', detect: 'Positive' , comment: '-- --'},
-          { isActive: true, date: '11/01/2020', name: 'Jami', caseID: 'Carney', detect: 'Negative', comment: '-- --' },
-          { isActive: true, date: '11/01/2020', name: 'Jami', caseID: 'Carney', detect: 'Negative', comment: '-- --' },
-          { isActive: true, date: '11/01/2020', name: 'Jami', caseID: 'Carney', detect: 'Negative', comment: '-- --' },
-          { isActive: true, date: '11/01/2020', name: 'Jami', caseID: 'Carney', detect: 'Negative', comment: '-- --' },
-          { isActive: true, date: '11/01/2020', name: 'Jami', caseID: 'Carney', detect: 'Negative', comment: '-- --' }
+          { date: '20/05/2020', name: 'Dickerson Macdonald', caseID: '1040', detect: 'Positive', comment: '-- --',detectDate: '20/05/2020'},
+          { date: '25/08/2020', name: 'Larsen Shaw', caseID: '1501' , detect: 'Negative', comment: '-- --',detectDate: '20/05/2020'},
+          { date: '2/12/2020', name: 'Geneva Wilson', caseID: '1677', detect: 'Positive' , comment: '-- --',detectDate: '20/05/2020'},
+          { date: '11/01/2020', name: 'Jami Carney', caseID: '1599', detect: 'Negative', comment: '-- --',detectDate: '20/05/2020' },
+          {date: '15/04/2020', name: 'Hiko Forest', caseID: '1402', detect: 'Negative', comment: '-- --' ,detectDate: '20/05/2020'},
+          {  date: '21/02/2020', name: 'New Dhan', caseID: '0950', detect: 'Positive', comment: '-- --' ,detectDate: '20/05/2020'},
+          { date: '08/09/2020', name: 'Cheetah Srihan', caseID: '2104', detect: 'Negative', comment: '-- --' ,detectDate: '20/05/2020'},
+          { date: '31/12/2020', name: 'Mormart Handsome', caseID: '1978', detect: 'Positive', comment: '-- --' ,detectDate: '20/05/2020'}
         ],tableVariants: [
           'primary',
           'secondary',

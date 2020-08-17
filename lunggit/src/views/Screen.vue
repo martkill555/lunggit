@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="Screen">
      <Nav msg=""/>
     
 <div>
@@ -15,20 +15,15 @@
       </b-nav>
       
     </template>  
-  
+
    <b-row class="p-4 ">
       <b-col  >
          
-    
-   
-    
-      
-      
-      <b-col  class="p-2 " >
+      <b-col   >
           
         <b-card-body >
-        <h2>Pre <b-badge variant="danger">dict</b-badge></h2>  
-        <b-card  >
+        <h2>Predict</h2>  
+        <b-card width="50" >
            <b-container fluid >
              <picture-input 
       ref="pictureInput" 
@@ -157,3 +152,33 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+#Home {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin:auto;
+  
+}
+// #app {
+//   display: flex;
+//   flex-direction: column;
+//   height: 100%;
+// }
+
+#navbar {
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+}
+</style>

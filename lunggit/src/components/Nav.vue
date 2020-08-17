@@ -102,8 +102,8 @@ h5 {
 </style>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+#nav {
+  font-family: maven pro;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

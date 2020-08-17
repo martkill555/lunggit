@@ -1,6 +1,6 @@
 <template>
 
-  <div>
+  <div >
     
   <b-navbar toggleable type="dark" variant="dark"  >
    
@@ -88,8 +88,8 @@ h5 {
 </style>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+#navBar {
+  font-family: maven pro;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

@@ -74,7 +74,7 @@
       <h4 class="my-4">‘Emperical confirmation by <b-badge variant="info">Specialist</b-badge> is required’</h4>
         
   
-  <b-col lg="mx-auto"><router-link to="/Main"> <b-button variant="outline-danger" size="lg" v-b-tooltip.hover title="Click to discard your result"  ><b-icon icon="x-circle" variant="danger"></b-icon>Discard </b-button></router-link>       <router-link to="/Main"> <b-button variant="success" size="lg" v-b-tooltip.hover title="Click to save your result"><b-icon icon="cloud-plus-fill" aria-hidden="true"></b-icon>Record </b-button></router-link></b-col>
+  <b-col lg="mx-auto"><router-link to="/Main"> <b-button variant="outline-danger" size="lg" v-b-tooltip.hover title="Click to discard your result"  ><b-icon icon="x-circle-fill" ></b-icon>Discard </b-button></router-link>       <router-link to="/Main"> <b-button variant="success" size="lg" v-b-tooltip.hover title="Click to save your result"><b-icon icon="cloud-plus-fill" aria-hidden="true"></b-icon>Record </b-button></router-link></b-col>
 
   
 
@@ -128,3 +128,33 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+#Home {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin:auto;
+  
+}
+// #app {
+//   display: flex;
+//   flex-direction: column;
+//   height: 100%;
+// }
+
+#navbar {
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+}
+</style>

@@ -1,9 +1,9 @@
 <template>
-  <div class="ViewProfile">
+  <div id="ViewProfile">
      <Nav msg=""/>
     
 <div>
-  <b-card title="" body-class="text-center " header-tag="nav" class="mx-auto">
+  <b-card title="" body-class="text-center p-6" header-tag="nav" class="mx-auto">
     <template v-slot:header >
       <b-nav card-header tabs>
         <b-nav-item active><b-icon icon="person-fill" aria-hidden="true"></b-icon>Profile</b-nav-item>
@@ -119,7 +119,7 @@ export default {
 </script>
 
 <style lang="scss">
-#Home {
+#ViewProfile {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

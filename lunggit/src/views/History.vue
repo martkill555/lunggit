@@ -52,6 +52,10 @@
             <b-col  class="mx-auto"><h5>Case ID: <b-badge variant="danger">{{ row.item.caseID }}</b-badge></h5></b-col>
            
              </b-row>
+ <b-col cols="3"></b-col>
+        <b-img id="home" src="https://scontent.fbkk22-6.fna.fbcdn.net/v/t1.15752-9/104711999_3112600348787974_6058262536763487165_n.jpg?_nc_cat=102&_nc_sid=b96e70&_nc_eui2=AeG-kjtU2bYiXTnTt9VR9MqHUimDIpxDr-hSKYMinEOv6P60UA2m_aNrhOfRlgUkvcDR7RN8-7hGexC_XjIgI9B9&_nc_ohc=Ccc4dJvv14oAX_zLII5&_nc_ht=scontent.fbkk22-6.fna&oh=d04fe097d5ee9eb3e955deb878c30e4f&oe=5F5F14D4" 
+    width ="200"></b-img>
+       
 
           
           <b-row class="mb-2">
@@ -76,34 +80,95 @@
 
         
 
-           <b-button variant="info" @click="$bvModal.show('modal-scoped')" ><b-icon icon="chat-text-fill" aria-hidden="true"></b-icon>Comment </b-button>
+           <b-button variant="info" v-b-modal.modal-center1 ><b-icon icon="chat-text-fill" aria-hidden="true"></b-icon>Comment </b-button>
       
-       <b-modal id="modal-scoped">
-    <template v-slot:modal-header="{ close }">
+   <b-modal id="modal-center1" centered title="BootstrapVue">
+    <template v-slot:modal-header="{ }">
       <!-- Emulate built in modal header close button action -->
-      <b-button size="sm" variant="outline-danger" @click="close()">
-        Close Modal
-      </b-button>
-      <h5>Modal Header</h5>
+      
+      <h4>Comment</h4><h5>Case ID: <b-badge variant="info">{{ row.item.caseID }}</b-badge></h5>
     </template>
 
-    <template v-slot:default="{ hide }">
-      <p>Modal Body with button</p>
-      <b-button @click="hide()">Hide Modal</b-button>
+    <template v-slot:default="{  }" >
+     
+      <b-container fluid class="mb-2 text-center">
+        <b-row class="mb-4 text-center">
+          <b-col cols="3"></b-col>
+       
+        </b-row>
+
+        <b-row class="mb-4">
+          <b-col cols="3"><b>Detect</b></b-col>
+          <b-col>
+            <b-form-select
+              v-model="headerBgVariant"
+              :options="detect"
+            ></b-form-select>
+          </b-col>
+         
+        </b-row>
+
+        <b-row class="mb-1">
+          <b-col cols="3"><b>Confident</b></b-col>
+          <b-col>
+            <b-form-select
+              v-model="bodyBgVariant"
+              :options="confident"
+            ></b-form-select>
+          </b-col>
+          
+        </b-row>
+
+      </b-container>
+
+      <form ref="form" @submit.stop.prevent="handleSubmit">
+        <b-form-group
+          :state="nameState2"
+          label="Description:"
+          label-for="name-input"
+          invalid-feedback="Description is required"
+        >
+          <b-form-input
+            id="name-input"
+            v-model="name"
+            :state="nameState2"
+            required
+          ></b-form-input>
+        </b-form-group>
+      </form>
     </template>
 
-    <template v-slot:modal-footer="{ ok, cancel, hide }">
-      <b>Custom Footer</b>
-      <!-- Emulate built in modal footer ok and cancel button actions -->
-      <b-button size="sm" variant="success" @click="ok()">
-        OK
-      </b-button>
-      <b-button size="sm" variant="danger" @click="cancel()">
+    <template v-slot:modal-footer="{  Submit,cancel  }">
+     
+      
+      <!-- Button with custom close trigger value -->
+      <b-button size="md"  variant="outline-dark" @click="cancel()">
         Cancel
       </b-button>
+      <b-button size="md" variant="danger" v-b-modal.modal-center2  @click="Submit()">
+        Submit
+      </b-button>
+    </template>
+  </b-modal>
+    <b-modal id="modal-center2" centered title="BootstrapVue">
+    <template v-slot:modal-header="{ }">
+      <!-- Emulate built in modal header close button action -->
+      
+      <h4>Confirmation</h4>
+    </template>
+
+    <template v-slot:default="{  }">
+      <p>Your comment was submited successfuly</p>
+      
+    </template>
+
+    <template v-slot:modal-footer="{  ok,  }">
+     
+      
       <!-- Button with custom close trigger value -->
-      <b-button size="sm" variant="outline-secondary" @click="hide('forget')">
-        Forget it
+      
+      <b-button size="md" variant="success" href="/History" @click="ok()"><b-icon icon="check-circle-fill"></b-icon>
+        Ok
       </b-button>
     </template>
   </b-modal>
@@ -139,13 +204,17 @@ import Footer from '@/components/Footer.vue'
 
 export default {
     computed: {
-      nameState() {
+      nameState2() {
         return this.name.length > 2 ? true : false
       }
     },
     data() {
       return {
-          
+        detect: ['Negative', 'Positive'],
+        confident: ['Weakness', 'Strong'],
+          name: '',
+        nameState: null,
+        submittedNames: [],
           sortBy: 'age',
         sortDesc: false,
         fields: [
@@ -191,22 +260,15 @@ export default {
       }
              
     },
-  name: 'Home',
+ 
   components: {
     Nav,
     Footer,
   
   },
   methods: {
-    onChange (image) {
-      console.log('New picture selected!')
-      if (image) {
-        console.log('Picture loaded.')
-        this.image = image
-      } else {
-        console.log('FileReader API not supported: use the <form>, Luke!')
-      }
-    }
+   
+    
   }
 }
 </script>

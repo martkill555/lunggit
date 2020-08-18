@@ -130,14 +130,35 @@
 
         </b-card-body>
           <b-container>
-   <router-link to="/ViewProfile"> <b-button variant="danger" size="lg"><b-icon icon="check" aria-hidden="true"></b-icon>Save </b-button></router-link>
+  <b-button variant="danger" size="lg" v-b-modal.modal-center1><b-icon icon="check" aria-hidden="true"></b-icon>Save </b-button>
 </b-container>
       </b-col>
       
     </b-row>
     
   
-    
+     <b-modal id="modal-center1" centered title="BootstrapVue">
+    <template v-slot:modal-header="{ }">
+      <!-- Emulate built in modal header close button action -->
+      
+      <h4>Confirmation</h4>
+    </template>
+
+    <template v-slot:default="{  }">
+      <p>Data was submitted successfully</p>
+      
+    </template>
+
+    <template v-slot:modal-footer="{  ok,  }">
+     
+      
+      <!-- Button with custom close trigger value -->
+      
+      <b-button size="md" variant="success" href="/ViewProfile" @click="ok()"><b-icon icon="check-circle-fill"></b-icon>
+        Ok
+      </b-button>
+    </template>
+  </b-modal> 
 
 
    

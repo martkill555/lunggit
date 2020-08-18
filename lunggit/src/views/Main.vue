@@ -23,7 +23,7 @@
 
     </b-carousel>
 
-      <b-jumbotron  id="Main" bg-variant="light" text-variant="dark">
+      <b-jumbotron  id="Main" bg-variant="white" text-variant="dark">
     <template v-slot:header><h2>Over<b-badge variant="danger">view</b-badge></h2></template>
 
     <template v-slot:lead>
@@ -34,6 +34,7 @@
 
 <b-img src="https://scontent.fbkk10-1.fna.fbcdn.net/v/t1.15752-9/116080892_689019555014265_2885304354529837000_n.png?_nc_cat=110&_nc_sid=b96e70&_nc_eui2=AeFdTofX5j84Vd2jykt902M28IWWzNBD-7XwhZbM0EP7tUoHqi9cRg-m2n-cS_VSNzkS7d5ljYKVvlHa12uivsvA&_nc_ohc=BNqpgn81lzwAX99wc-z&_nc_ht=scontent.fbkk10-1.fna&oh=bfcd4fb6de2f2cd3f703a9d410de0fdb&oe=5F60F282" 
     width ="800"></b-img>
+   
     <b-container class="my-4">
      <b-col lg="mx-auto"><router-link to="/Screen"> <b-button variant="outline-primary" size="lg"><b-icon icon="tv" aria-hidden="true"></b-icon>Lung Screen </b-button></router-link>       <router-link to="/History"> <b-button variant="outline-success" size="lg" ><b-icon icon="clipboard-data" aria-hidden="true"></b-icon>History </b-button></router-link></b-col>
  </b-container>

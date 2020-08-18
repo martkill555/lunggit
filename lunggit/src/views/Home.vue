@@ -18,7 +18,7 @@
       img-src="https://scontent.fbkk22-3.fna.fbcdn.net/v/t1.15752-9/s2048x2048/116058418_632745694315024_1285163407543643633_n.jpg?_nc_cat=103&_nc_sid=b96e70&_nc_eui2=AeGeaB9Ksi-YYlboGExzIf-6j7mCn6Qma_iPuYKfpCZr-NfJ2125nqUedvKiYJ4yMwFBgMArf1NYDzb61f1-zryR&_nc_ohc=mam6gk241aEAX_sXMSe&_nc_ht=scontent.fbkk22-3.fna&_nc_tp=7&oh=a071c64be137035fc3fde7f5cbd656e6&oe=5F5E538F"
     ></b-carousel-slide>
      </b-carousel>
-      <b-jumbotron bg-variant="light" text-variant="dark" border-variant="light">
+      <b-jumbotron bg-variant="white" text-variant="dark">
     <template v-slot:header>Discover Our Application</template>
 
     <template v-slot:lead>

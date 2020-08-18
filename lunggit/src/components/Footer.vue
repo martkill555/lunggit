@@ -1,12 +1,13 @@
 <template v-slot:footer>
 <div id="app" >
-    
+    <app-footer>
  <b-card bg-variant="dark" text-variant="white" footer-class="footer">
   <b-card-text>
-    Lungscan @KMUTT, 2020
+    <b><b-badge variant="danger">Lungscan</b-badge> @KMUTT, 2020</b>
   </b-card-text>
 
  </b-card>
+   </app-footer>
     </div>
 </template>
 

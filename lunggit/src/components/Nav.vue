@@ -1,6 +1,6 @@
 <template>
 
-  <div>
+  <div id="">
     
   <b-navbar toggleable type="dark" variant="dark"  >
    
@@ -17,9 +17,38 @@
     <b-dropdown-item href="/EditProfile"><b-icon icon="person"></b-icon>Edit your profile</b-dropdown-item>
    
    
-      <b-dropdown-item href="/"><b-icon icon="power"></b-icon>Logout</b-dropdown-item>
+      <b-dropdown-item  v-b-modal.modal-center><b-icon icon="power"></b-icon>Logout</b-dropdown-item>
       <!-- //<b-dropdown-item  @click="showMsgBoxTwo"><b-icon icon="power"></b-icon>Logout</b-dropdown-item> -->
   </b-dropdown>
+
+
+<b-modal id="modal-center">
+    <template v-slot:modal-header="{ }">
+      <!-- Emulate built in modal header close button action -->
+      
+      <h4>Logout</h4>
+    </template>
+
+    <template v-slot:default="{  }">
+      <p>You will be return to the login page</p>
+      
+    </template>
+
+    <template v-slot:modal-footer="{  Logout, cancel }">
+     
+      
+      <!-- Button with custom close trigger value -->
+      <b-button size="md"  variant="outline-dark" @click="cancel()">
+        Cancel
+      </b-button>
+      <b-button size="md" variant="danger" href="/" @click="Logout()"><b-icon icon="power"></b-icon>
+        Logout
+      </b-button>
+    </template>
+  </b-modal>
+
+
+
    </b-navbar>
 
 

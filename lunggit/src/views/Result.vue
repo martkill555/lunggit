@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div id="Result">
      <Nav msg=""/>
     
 <div>
@@ -37,7 +37,7 @@
     <b-col sm="12" class="my-4">
        
 
- <b-button v-b-toggle.collapse-a.collapse-b variant="danger" pill size="lg" v-b-tooltip.hover title="Click to show screen result">View Result</b-button>
+ <b-button v-b-toggle.collapse-a.collapse-b variant="danger" pill size="lg" v-b-tooltip.hover title="Click to show screen result"><b-icon icon="eye-fill"></b-icon>View Result</b-button>
    
     <b-collapse id="collapse-a" class="mt-2">
      <h5 class="my-4">Detect    :  <b-badge variant="warning">Positive</b-badge><b-icon icon="exclamation-circle-fill" variant="danger"></b-icon></h5>
@@ -74,9 +74,30 @@
       <h4 class="my-4">‘Emperical confirmation by <b-badge variant="info">Specialist</b-badge> is required’</h4>
         
   
-  <b-col lg="mx-auto"><router-link to="/Main"> <b-button variant="outline-danger" size="lg" v-b-tooltip.hover title="Click to discard your result"  ><b-icon icon="x-circle-fill" ></b-icon>Discard </b-button></router-link>       <router-link to="/Main"> <b-button variant="success" size="lg" v-b-tooltip.hover title="Click to save your result"><b-icon icon="cloud-plus-fill" aria-hidden="true"></b-icon>Record </b-button></router-link></b-col>
+  <b-col lg="mx-auto"><router-link to="/Main"> <b-button variant="outline-danger" size="lg" v-b-tooltip.hover title="Click to discard your result"  ><b-icon icon="x-circle-fill" ></b-icon>Discard </b-button></router-link>        <b-button variant="success" size="lg" v-b-tooltip.hover title="Click to save your result" v-b-modal.modal-center1><b-icon icon="cloud-plus-fill" aria-hidden="true"></b-icon>Record </b-button></b-col>
 
-  
+  <b-modal id="modal-center1" centered title="BootstrapVue">
+    <template v-slot:modal-header="{ }">
+      <!-- Emulate built in modal header close button action -->
+      
+      <h4>Confirmation</h4>
+    </template>
+
+    <template v-slot:default="{  }">
+      <p>Your result was recorded successfuly</p>
+      
+    </template>
+
+    <template v-slot:modal-footer="{  ok,  }">
+     
+      
+      <!-- Button with custom close trigger value -->
+      
+      <b-button size="md" variant="success" href="/Main" @click="ok()">
+        Ok
+      </b-button>
+    </template>
+  </b-modal>
 
       </b-col>
       

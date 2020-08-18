@@ -24,7 +24,7 @@
     </b-carousel>
 
       <b-jumbotron  id="Main" bg-variant="white" text-variant="dark">
-    <template v-slot:header><h2>Over<b-badge variant="danger">view</b-badge></h2></template>
+    <template v-slot:header><b-badge variant="danger">Overview</b-badge></template>
 
     <template v-slot:lead>
      <b> Lung Scan project will be using the abilities of an AI technology based on a website to implement a feature that aims to help medical staff who want to diagnose tuberculosis using x-ray film</b>
@@ -36,7 +36,7 @@
     width ="800"></b-img>
    
     <b-container class="my-4">
-     <b-col lg="mx-auto"><router-link to="/Screen"> <b-button variant="outline-primary" size="lg"><b-icon icon="tv" aria-hidden="true"></b-icon>Lung Screen </b-button></router-link>       <router-link to="/History"> <b-button variant="outline-success" size="lg" ><b-icon icon="clipboard-data" aria-hidden="true"></b-icon>History </b-button></router-link></b-col>
+     <b-col lg="mx-auto" ><router-link to="/Screen"> <b-button variant="outline-primary" size="lg"><b-icon icon="tv" aria-hidden="true"></b-icon>Lung Screen </b-button></router-link>       <router-link to="/History"> <b-button variant="outline-success" size="lg" ><b-icon icon="clipboard-data" aria-hidden="true"></b-icon>History </b-button></router-link></b-col>
  </b-container>
   
     

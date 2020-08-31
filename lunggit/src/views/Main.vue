@@ -18,13 +18,13 @@
       <!-- Text slides with image -->
       <b-carousel-slide
         height="200"
-        img-src="https://scontent.fbkk10-1.fna.fbcdn.net/v/t1.15752-9/117382269_296939308241771_3685652132270833304_n.png?_nc_cat=107&_nc_sid=b96e70&_nc_eui2=AeHk38_wOludLT1ns2bjeM6orUuby0MV8DOtS5vLQxXwM0wIJ_QMmR-WLCJn1SKIgY15W3HPVH4KPv_iiCLcXgBj&_nc_ohc=WvjVV23inm0AX9kisNe&_nc_ht=scontent.fbkk10-1.fna&oh=0fc082a881a9f0505313d3a46eac3ca9&oe=5F610F74"
+        img-src="https://scontent.fbkk10-1.fna.fbcdn.net/v/t1.15752-9/s2048x2048/118281345_2810978145854185_385926875551241355_n.png?_nc_cat=103&_nc_sid=b96e70&_nc_eui2=AeElhrmpkQ8hWMexuBikuZ54xxmF27AH4k7HGYXbsAfiTg8svtZEQYm9agWEwYAe3PtxKa1O2c7znv8KNC5F08zO&_nc_ohc=BJhtDuJXER8AX8CEjR5&_nc_oc=AQlar05vzbLpun6xPLZIOkI_-M8ATtAqcuiKb63xYFhE8QLprbb66AhFsAz81BcQDHY&_nc_ht=scontent.fbkk10-1.fna&oh=ef6fc02b5b3f752dee1271643f23203e&oe=5F6762C9"
       ></b-carousel-slide>
 
     </b-carousel>
 
       <b-jumbotron  id="Main" bg-variant="white" text-variant="dark">
-    <template v-slot:header><b-badge variant="danger">Overview</b-badge></template>
+    <template v-slot:header><b-badge variant="outline-dark">Overview</b-badge></template>
 
     <template v-slot:lead>
      <b> Lung Scan project will be using the abilities of an AI technology based on a website to implement a feature that aims to help medical staff who want to diagnose tuberculosis using x-ray film</b>

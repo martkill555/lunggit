@@ -49,16 +49,30 @@
     <b-col sm="3">
       <label for="input-none">Name:</label>
     </b-col>
-    <b-col sm="9">
+    <b-col sm="3">
       <b-form-input
-      id="input-live"
+      id="input-live1"
       v-model="name"
       :state="nameState"
       aria-describedby="input-live-help input-live-feedback"
       placeholder="Enter your name"
       trim
     ></b-form-input>
+    
 
+  
+  
+    </b-col>
+    <label for="input-none">Last Name: </label>  <b-col sm="3">
+      <b-form-input
+      id="input-live2"
+      
+      placeholder="Enter your last name"
+      trim
+    ></b-form-input>
+    
+
+  
   
     </b-col>
   </b-row>
@@ -74,7 +88,7 @@
         
       <label for="input-none">Note:</label>
     </b-col>
-    <b-col sm="9">
+    <b-col sm="7">
       <b-form-textarea
     id="textarea-no-resize"
     placeholder=""

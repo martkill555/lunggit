@@ -211,6 +211,9 @@ export default {
       } else {
         console.log('FileReader API not supported: use the <form>, Luke!')
       }
+    },
+    getData() {
+      this.$axios.get('')
     }
   }
 }

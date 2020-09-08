@@ -21,8 +21,9 @@
 
     
 
-    <router-link to="/Main"> <b-link href="/Main.vue"> <b-button variant="primary">Login</b-button></b-link></router-link>
+    <router-link to="/Main"> <b-link href="/Main.vue"> <b-button variant="danger">Login</b-button></b-link></router-link>
   </b-form>
+     
     <b-collapse id="nav-collapse" is-nav>
   
 
@@ -40,6 +41,7 @@
 
 <script>
 export default {
+  
   data() {
       return {
         userId: ''

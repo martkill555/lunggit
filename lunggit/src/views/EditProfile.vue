@@ -55,7 +55,7 @@
       v-model="name"
       :state="nameState"
       aria-describedby="input-live-help input-live-feedback"
-      placeholder="Enter your name"
+      placeholder="Enter at least 3 characters"
       trim
     ></b-form-input>
 

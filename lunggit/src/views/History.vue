@@ -121,21 +121,7 @@
 
       </b-container>
 
-      <form ref="form" @submit.stop.prevent="handleSubmit">
-        <b-form-group
-          :state="nameState2"
-          label="Description:"
-          label-for="name-input"
-          invalid-feedback="Description is required"
-        >
-          <b-form-input
-            id="name-input"
-            v-model="name"
-            :state="nameState2"
-            required
-          ></b-form-input>
-        </b-form-group>
-      </form>
+     
     </template>
 
     <template v-slot:modal-footer="{  Submit,cancel  }">

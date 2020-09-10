@@ -7,6 +7,7 @@ import Screen from '../views/Screen.vue'
 import ViewProfile from '../views/ViewProfile.vue'
 import EditProfile from '../views/EditProfile.vue'
 import Result from '../views/Result.vue'
+import Predict from '../views/Predict.vue'
 
 Vue.use(VueRouter)
 
@@ -54,6 +55,12 @@ Vue.use(VueRouter)
     name: 'Result',
  
     component: Result
+  },
+  {
+    path: '/predict',
+    name: 'Predict',
+ 
+    component:Predict
   }
 ]
 

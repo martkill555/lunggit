@@ -20,7 +20,7 @@
    <b-row class="p-4 ">
      
       <b-col  >
-          <h3>Please select your patient...</h3>
+          <h1>Predict</h1>
       <b-col   >
           
         <b-card-body >
@@ -28,36 +28,141 @@
          
     
         <b-card width="50" >
-          <b-col lg="10" class="my-1">
-        <b-form-group
-          label="Search"
-          label-cols-sm="3"
-          label-align-sm="right"
-          label-size="sm"
-          label-for="filterInput"
-          class="mb-0"
-        >
-          <b-input-group size="sm">
-            <b-form-input
-              v-model="filter"
-              type="search"
-              id="filterInput"
-              placeholder="Type to search your patient name"
-            ></b-form-input>
-            <b-input-group-append>
-              <b-button :disabled="!filter" @click="filter = ''">Clear</b-button>
-            </b-input-group-append>
-          </b-input-group>
-        </b-form-group>
+         
+      <b-container fluid >
+ 
+  
+    <b-row class="p-4 ">
+      <b-col  >
+         
+    
+    <picture-input 
+      ref="pictureInput" 
+      @change="onChange" 
+      
+      width="400" 
+      height="400" 
+      margin="16" 
+      accept="image/jpeg,image/png" 
+      size="10" 
+      buttonClass="btn"
+      :customStrings="{
+        upload: '<h1>Bummer!</h1>',
+        drag: 'Upload Image '
+      }">
+    </picture-input>
+    
       </b-col>
-     
- <label>If you cannnot find your patient name, please </label> <b-button variant="outline-success" size="sm" v-b-modal.modal-center1>Register</b-button>
+      
+      <b-col   >
+          
+        <b-card-body title="" >
+            <h4>Case ID: <b-badge variant="info">1045</b-badge></h4> 
+        <b-card >
+           <b-container fluid >
+      <b-row class="my-4">
+    <b-col sm="3">
+         <label for="textarea-small">First name:</label>
+    </b-col>
+    <b-col sm="9">
+      <b-list-group>
+  <b-list-group-item>Sarawut</b-list-group-item>
+ 
+</b-list-group>
+
+  
+    </b-col>
+  </b-row>
+
+   <b-row class="my-4">
+    <b-col sm="3">
+         <label for="textarea-small">Last name:</label>
+    </b-col>
+    <b-col sm="9">
+      <b-list-group>
+  <b-list-group-item>Rattanawichein</b-list-group-item>
+ 
+</b-list-group>
+
+  
+    </b-col>
+  </b-row>
+  
+     <b-row class="my-4">
+    <b-col sm="3">
+         <label for="textarea-small">Date of birth:</label>
+    </b-col>
+    <b-col sm="9">
+      <b-list-group>
+  <b-list-group-item>06/07/2542</b-list-group-item>
+ 
+</b-list-group>
+
+  
+    </b-col>
+  </b-row>
+  <b-row >
+  
+    <b-col sm="12" >
+       
+    
+ <b-row class="my-4">
+    <b-col sm="3">
+      <label for="input-none">Description:</label>
+    </b-col>
+    <b-col sm="9">
+     <b-form-textarea
+    id="textarea-no-resize"
+    placeholder="Enter description"
+    rows="3"
+    no-resize
+  ></b-form-textarea>
+
+  
+    </b-col>
+  </b-row>
+
+  
+   
+
+  
+    
+
+    </b-col>
+    
+  </b-row>
+  
+ 
+
+  
+</b-container>
+
+      
+      
+      
+    
+        
+      
+  
+
+ 
+  </b-card>
+
+        </b-card-body>
+       
+      </b-col>
+      
+    </b-row>
+
+  
+</b-container>
+
 
   </b-card>
 
         </b-card-body>
           <b-container>
-   <router-link to="/Predict"> <b-button variant="danger" size="lg">Next<b-icon icon="arrow-right" aria-hidden="true"></b-icon> </b-button></router-link>
+   <router-link to="/Result"> <b-button variant="danger" size="lg">Start </b-button></router-link>
 
 
    
@@ -144,6 +249,7 @@
 // @ is an alias to /src
 import Nav from '@/components/Nav.vue'
 import Footer from '@/components/Footer.vue'
+import PictureInput from 'vue-picture-input'
 
 
 export default {
@@ -172,6 +278,7 @@ export default {
   components: {
     Nav,
     Footer,
+     PictureInput
   
   },
   methods: {
@@ -180,7 +287,19 @@ export default {
         // Trigger pagination to update the number of buttons/pages due to filtering
         this.totalRows = filteredItems.length
         this.currentPage = 1
+      },
+       onChange (image) {
+      console.log('New picture selected!')
+      if (image) {
+        console.log('Picture loaded.')
+        this.image = image
+      } else {
+        console.log('FileReader API not supported: use the <form>, Luke!')
       }
+    },
+    getData() {
+      this.$axios.get('')
+    }
   }
 }
 </script>

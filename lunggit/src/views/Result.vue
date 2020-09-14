@@ -1,120 +1,115 @@
 <template>
   <div id="Result">
-    <Nav msg />
+     <Nav msg=""/>
+    
+<div>
+ 
+  <b-card title="" body-class="text-center " header-tag="nav" class="mx-auto">
+    <template v-slot:header >
+      <b-nav card-header tabs>
+        <b-nav-item disabled>Screen</b-nav-item>
+      
+    <b-nav-item active><b-icon icon="file-earmark-text-fill" aria-hidden="true"></b-icon>Result</b-nav-item>
 
-    <div>
-      <b-card title body-class="text-center " header-tag="nav" class="mx-auto">
-        <template v-slot:header>
-          <b-nav card-header tabs>
-            <b-nav-item disabled>Screen</b-nav-item>
 
-            <b-nav-item active>
-              <b-icon icon="file-earmark-text-fill" aria-hidden="true"></b-icon>Result
-            </b-nav-item>
-          </b-nav>
-        </template>
+      </b-nav>
+      
+    </template>  
+  
+   <b-row class="p-4 ">
+      <b-col  >
+         
+    
+   
+    
+      
+      
+      <b-col  class="p-2 " >
+          
+        <b-card-body >
+       <h1> Result</h1>
+        <b-card  >
+           <b-container fluid >
+              <h4>Case ID: <b-badge variant="info">1045</b-badge></h4> 
+             <b-img src="https://scontent.fbkk22-6.fna.fbcdn.net/v/t1.15752-9/104711999_3112600348787974_6058262536763487165_n.jpg?_nc_cat=102&_nc_sid=b96e70&_nc_eui2=AeG-kjtU2bYiXTnTt9VR9MqHUimDIpxDr-hSKYMinEOv6P60UA2m_aNrhOfRlgUkvcDR7RN8-7hGexC_XjIgI9B9&_nc_ohc=Ccc4dJvv14oAX_zLII5&_nc_ht=scontent.fbkk22-6.fna&oh=d04fe097d5ee9eb3e955deb878c30e4f&oe=5F5F14D4" 
+    width ="250" rounded alt="Rounded image" class="mx-auto"></b-img>
+  <b-row >
+  
+    <b-col sm="12" class="my-4">
+       
 
-        <b-row class="p-4">
-          <b-col>
-            <b-col class="p-2">
-              <b-card-body>
-                <h1>Result</h1>
-                <b-card>
-                  <b-container fluid>
-                    <h4>
-                      Case ID:
-                      <b-badge variant="info">1045</b-badge>
-                    </h4>
-                    <b-img
-                      src="https://scontent.fbkk22-6.fna.fbcdn.net/v/t1.15752-9/104711999_3112600348787974_6058262536763487165_n.jpg?_nc_cat=102&_nc_sid=b96e70&_nc_eui2=AeG-kjtU2bYiXTnTt9VR9MqHUimDIpxDr-hSKYMinEOv6P60UA2m_aNrhOfRlgUkvcDR7RN8-7hGexC_XjIgI9B9&_nc_ohc=Ccc4dJvv14oAX_zLII5&_nc_ht=scontent.fbkk22-6.fna&oh=d04fe097d5ee9eb3e955deb878c30e4f&oe=5F5F14D4"
-                      width="250"
-                      rounded
-                      alt="Rounded image"
-                      class="mx-auto"
-                    ></b-img>
-                    <b-row>
-                      <b-col sm="12" class="my-4">
-                        <b-button
-                          v-b-toggle.collapse-a.collapse-b
-                          variant="danger"
-                          pill
-                          size="lg"
-                          v-b-tooltip.hover
-                          title="Click to show screen result"
-                        >View Result</b-button>
+ <b-button v-b-toggle.collapse-a.collapse-b variant="danger" pill size="lg" v-b-tooltip.hover title="Click to show screen result" >View Result</b-button>
+   
+    <b-collapse id="collapse-a" class="mt-2">
+     <h5 class="my-4">Detect    :  <b-badge variant="warning">Positive</b-badge><b-icon icon="exclamation-circle-fill" variant="danger"></b-icon></h5>
+  </b-collapse>
+  <b-collapse id="collapse-b" class="mt-2">
+    <h5 class="my-4">Confident : <b-badge variant="primary" >Specialist</b-badge><b-icon icon="exclamation-circle-fill" variant="danger"></b-icon></h5>
+  </b-collapse>
 
-                        <b-collapse id="collapse-a" class="mt-2">
-                          <h5 class="my-4">
-                            Detect :
-                            <b-badge variant="warning">Positive</b-badge>
-                            <b-icon icon="exclamation-circle-fill" variant="danger"></b-icon>
-                          </h5>
-                        </b-collapse>
-                        <b-collapse id="collapse-b" class="mt-2">
-                          <h5 class="my-4">
-                            Confident :
-                            <b-badge variant="primary">Specialist</b-badge>
-                            <b-icon icon="exclamation-circle-fill" variant="danger"></b-icon>
-                          </h5>
-                        </b-collapse>
-                      </b-col>
-                      <b-col sm="12"></b-col>
-                    </b-row>
-                  </b-container>
-                </b-card>
-              </b-card-body>
+    </b-col>
+     <b-col sm="12" >
+       
 
-              <h4 class="my-4">
-                ‘Emperical confirmation by
-                <b-badge variant="info">Specialist</b-badge>is required’
-              </h4>
+   
+    
 
-              <b-col lg="mx-auto">
-                <router-link to="/Main">
-                  <b-button
-                    variant="outline-danger"
-                    size="lg"
-                    v-b-tooltip.hover
-                    title="Click to discard your result"
-                  >
-                    <b-icon icon="x-circle-fill"></b-icon>Discard
-                  </b-button>
-                </router-link>
-                <b-button
-                  variant="success"
-                  size="lg"
-                  v-b-tooltip.hover
-                  title="Click to save your result"
-                  v-b-modal.modal-center1
-                >
-                  <b-icon icon="cloud-plus-fill" aria-hidden="true"></b-icon>Record
-                </b-button>
-              </b-col>
+    </b-col>
+    
+  </b-row>
+  
+ 
 
-              <b-modal id="modal-center1" centered title="BootstrapVue">
-                <template v-slot:modal-header="{ }">
-                  <!-- Emulate built in modal header close button action -->
+  
+</b-container>
 
-                  <h4>Confirmation</h4>
-                </template>
 
-                <template v-slot:default="{  }">
-                  <p>Your result was recorded successfuly</p>
-                </template>
+  </b-card>
 
-                <template v-slot:modal-footer="{  ok,  }">
-                  <!-- Button with custom close trigger value -->
+        </b-card-body>
+        
+              
+   
+        
+   
+      <h4 class="my-4">‘Emperical confirmation by <b-badge variant="info">Specialist</b-badge> is required’</h4>
+        
+  
+  <b-col lg="mx-auto"><router-link to="/Main"> <b-button variant="outline-danger" size="lg" v-b-tooltip.hover title="Click to discard your result"  ><b-icon icon="trash-fill" ></b-icon>Discard </b-button></router-link>        <b-button variant="success" size="lg" v-b-tooltip.hover title="Click to save your result" v-b-modal.modal-center1><b-icon icon="cloud-plus-fill" aria-hidden="true"></b-icon>Record </b-button></b-col>
 
-                  <b-button size="md" variant="success" href="/Main" @click="ok()">Ok</b-button>
-                </template>
-              </b-modal>
-            </b-col>
-          </b-col>
-        </b-row>
-      </b-card>
-    </div>
+  <b-modal id="modal-center1" centered title="BootstrapVue">
+    <template v-slot:modal-header="{ }">
+      <!-- Emulate built in modal header close button action -->
+      
+      <h4>Confirmation</h4>
+    </template>
 
-    <Footer msg />
+    <template v-slot:default="{  }">
+      <p>Your result was recorded successfuly</p>
+      
+    </template>
+
+    <template v-slot:modal-footer="{  ok,  }">
+     
+      
+      <!-- Button with custom close trigger value -->
+      
+      <b-button size="md" variant="success" href="/Main" @click="ok()">
+        Ok
+      </b-button>
+    </template>
+  </b-modal>
+
+      </b-col>
+      
+      </b-col>
+      
+    </b-row>
+  </b-card>
+ 
+</div>
+
+     <Footer msg=""/>
   </div>
 </template>
 <script>

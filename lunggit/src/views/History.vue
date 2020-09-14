@@ -160,10 +160,93 @@
             </b-col>
           </b-col>
         </b-row>
-      </b-card>
-    </div>
+ 
+      </b-container>
 
-    <Footer msg />
+      <b-col sm="12" >
+       
+    
+ <b-row class="my-4">
+    <b-col sm="3">
+      <label for="input-none"><b>Description:</b></label>
+    </b-col>
+    <b-col sm="9">
+     <b-form-textarea
+    id="textarea-no-resize"
+    placeholder="Enter description"
+    rows="3"
+    no-resize
+  ></b-form-textarea>
+
+  
+    </b-col>
+  </b-row>
+
+  
+   
+
+  
+    
+
+    </b-col>
+    </template>
+
+    <template v-slot:modal-footer="{  Submit,cancel  }">
+     
+      
+      <!-- Button with custom close trigger value -->
+      <b-button size="md"  variant="outline-dark" @click="cancel()">
+        Cancel
+      </b-button>
+      <b-button size="md" variant="danger" v-b-modal.modal-center2  @click="Submit()">
+        Submit
+      </b-button>
+    </template>
+  </b-modal>
+    <b-modal id="modal-center2" centered title="BootstrapVue">
+    <template v-slot:modal-header="{ }">
+      <!-- Emulate built in modal header close button action -->
+      
+      <h4>Confirmation</h4>
+    </template>
+
+    <template v-slot:default="{  }">
+      <p>Your comment was submited successfuly</p>
+      
+    </template>
+
+    <template v-slot:modal-footer="{  ok,  }">
+     
+      
+      <!-- Button with custom close trigger value -->
+      
+      <b-button size="md" variant="success" href="/History" @click="ok()"><b-icon icon="check-circle-fill"></b-icon>
+        Ok
+      </b-button>
+    </template>
+  </b-modal>
+
+
+   </b-card>
+      </template>
+    </b-table>
+
+  
+</b-container>
+
+
+  </b-card>
+
+        </b-card-body>
+         
+      </b-col></b-col>
+      
+    </b-row>
+  </b-card>
+ 
+</div>
+
+     <Footer msg=""/>
   </div>
 </template>
 <script>

@@ -38,14 +38,14 @@
     <b-col sm="12" class="my-4">
        
 
- <b-button v-b-toggle.collapse-a.collapse-b variant="danger" pill size="lg" v-b-tooltip.hover title="Click to show screen result" >View Result</b-button>
+
    
-    <b-collapse id="collapse-a" class="mt-2">
+   
      <h5 class="my-4">Detect    :  <b-badge variant="warning">Positive</b-badge><b-icon icon="exclamation-circle-fill" variant="danger"></b-icon></h5>
-  </b-collapse>
-  <b-collapse id="collapse-b" class="mt-2">
+ 
+  
     <h5 class="my-4">Confident : <b-badge variant="primary" >Specialist</b-badge><b-icon icon="exclamation-circle-fill" variant="danger"></b-icon></h5>
-  </b-collapse>
+
 
     </b-col>
      <b-col sm="12" >

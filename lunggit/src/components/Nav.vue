@@ -12,6 +12,7 @@
       <b-button-group class="mx-1">
        <b-button variant="dark" href="/Screen" v-b-tooltip.hover title="Click to start screen" ><b-icon scale="1.50" icon="cloud-plus" variant="white"></b-icon></b-button>  
           <b-button variant="dark" href="/history" v-b-tooltip.hover title="Click to view screen history" ><b-icon scale="1.00" icon="folder"></b-icon></b-button>  
+          
     </b-button-group>
          
        <b-avatar v-b-tooltip.hover title="Click to view your profile" src="https://scontent.fbkk22-1.fna.fbcdn.net/v/t1.0-9/p960x960/70286121_2507184436030743_4153033461684240384_o.jpg?_nc_cat=100&_nc_sid=85a577&_nc_eui2=AeFmHi3XXYNO64vAJFmkTg9eR9E0bJitpYlH0TRsmK2lidu8qt4yX6MjOsxZ_mefcktgaMuk5jmr6nLEGhJ4n8N8&_nc_ohc=kFXF9YkEV1kAX-cGya4&_nc_ht=scontent.fbkk22-1.fna&_nc_tp=6&oh=a9b1a31bee901e20798594d252eff629&oe=5F5F821D" href="/ViewProfile">

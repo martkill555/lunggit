@@ -75,7 +75,7 @@
       <h4 class="my-4">‘Emperical confirmation by <b-badge variant="info">Specialist</b-badge> is required’</h4>
         
   
-  <b-col lg="mx-auto"><router-link to="/Main"> <b-button variant="outline-danger" size="lg" v-b-tooltip.hover title="Click to discard your result"  ><b-icon icon="x-circle-fill" ></b-icon>Discard </b-button></router-link>        <b-button variant="success" size="lg" v-b-tooltip.hover title="Click to save your result" v-b-modal.modal-center1><b-icon icon="cloud-plus-fill" aria-hidden="true"></b-icon>Record </b-button></b-col>
+  <b-col lg="mx-auto"><router-link to="/Main"> <b-button variant="outline-danger" size="lg" v-b-tooltip.hover title="Click to discard your result"  ><b-icon icon="trash-fill" ></b-icon>Discard </b-button></router-link>        <b-button variant="success" size="lg" v-b-tooltip.hover title="Click to save your result" v-b-modal.modal-center1><b-icon icon="cloud-plus-fill" aria-hidden="true"></b-icon>Record </b-button></b-col>
 
   <b-modal id="modal-center1" centered title="BootstrapVue">
     <template v-slot:modal-header="{ }">

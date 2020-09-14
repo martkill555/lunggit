@@ -118,10 +118,35 @@
           </b-col>
           
         </b-row>
-
+ 
       </b-container>
 
-     
+      <b-col sm="12" >
+       
+    
+ <b-row class="my-4">
+    <b-col sm="3">
+      <label for="input-none"><b>Description:</b></label>
+    </b-col>
+    <b-col sm="9">
+     <b-form-textarea
+    id="textarea-no-resize"
+    placeholder="Enter description"
+    rows="3"
+    no-resize
+  ></b-form-textarea>
+
+  
+    </b-col>
+  </b-row>
+
+  
+   
+
+  
+    
+
+    </b-col>
     </template>
 
     <template v-slot:modal-footer="{  Submit,cancel  }">

@@ -42,6 +42,7 @@
                       </b-input-group>
                     </b-form-group>
                   </b-col>
+                <br />
 
                   <label>If you cannnot find your patient name, please</label>
                   <b-button variant="outline-success" size="sm" v-b-modal.modal-center1>Register</b-button>

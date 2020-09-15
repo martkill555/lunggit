@@ -24,7 +24,7 @@
                     <b-row class="p-4">
                       <b-col>
                         <picture-input
-                        type ='file'
+                          type="file"
                           ref="file-key"
                           @change="onChange"
                           width="224"
@@ -104,7 +104,7 @@
               </b-card-body>
               <b-container>
                 <router-link to="/Result">
-                  <b-button variant="danger" size="lg">Screen</b-button>
+                  <b-button variant="danger" @click="sendToScan()" size="lg">Screen</b-button>
                 </router-link>
               </b-container>
             </b-col>
@@ -204,9 +204,17 @@ export default {
       this.totalRows = filteredItems.length;
       this.currentPage = 1;
     },
-    onChange(image) {
+    async onChange(image) {
       console.log("New picture selected!");
       if (image) {
+        const mimeType = mimeType || (image.match(/^data:([^;]+);/) || "")[1];
+        this.file = await fetch(image)
+          .then(function (res) {
+            return res.arrayBuffer();
+          })
+          .then(function (buf) {
+            return new File([buf], "filename", { type: mimeType });
+          });
         console.log("Picture loaded.");
         this.image = image;
       } else {
@@ -215,6 +223,34 @@ export default {
     },
     getData() {
       this.$axios.get("");
+    },
+    urltoFile(url, filename, mimeType) {
+      mimeType = mimeType || (url.match(/^data:([^;]+);/) || "")[1];
+      return fetch(url)
+        .then(function (res) {
+          return res.arrayBuffer();
+        })
+        .then(function (buf) {
+          return new File([buf], filename, { type: mimeType });
+        });
+    },
+    sendToScan() {
+      const formdata = new FormData();
+      formdata.append("file_key", this.file, "file");
+      this.$axios({
+        method: "post",
+        url: "/api/file",
+        data: formdata,
+        headers: {
+          "Content-Type": "multipart/formdata",
+        },
+      })
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          throw new err();
+        });
     },
   },
 };

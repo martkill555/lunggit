@@ -18,9 +18,12 @@
           <b-col>
             <h3>Please select your patient...</h3>
             <b-col>
+              
               <b-card-body>
+                
                 <b-card width="50">
                   <b-col lg="10" class="my-1">
+                    <br /><br /><br /><br />
                     <b-form-group
                       label="Search"
                       label-cols-sm="3"
@@ -44,13 +47,16 @@
                   </b-col>
                 <br />
 
-                  <label>If you cannnot find your patient name, please</label>
+                  <label>If you cannnot find your patient name, please  </label>
+                 
                   <b-button variant="outline-success" size="sm" v-b-modal.modal-center1>Register</b-button>
+                   <br /><br /><br /><br />
                 </b-card>
+                <br />
               </b-card-body>
               <b-container>
                 <router-link to="/Predict">
-                  <b-button variant="danger" size="lg">
+                  <b-button disabled  variant="danger" size="lg">
                     Next
                     <b-icon icon="arrow-right" aria-hidden="true"></b-icon>
                   </b-button>

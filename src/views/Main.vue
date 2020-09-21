@@ -2,7 +2,7 @@
   <div>
     <Nav class="mt-0" msg />
     <MainIMG />
-    <SideBar class="Main"/>
+    <!-- <SideBar class="Main"/> -->
     <MainJumbotron />    
     <Footer msg />
     
@@ -14,7 +14,7 @@ import Nav from "@/components/Nav.vue";
 import Footer from "@/components/Footer.vue";
 import MainIMG from "@/components/MainIMG.vue";
 import MainJumbotron from "@/components/MainJumbotron.vue";
-import SideBar from "@/components/SideBar.vue";
+// import SideBar from "@/components/SideBar.vue";
 
 export default {
   name: "Home",
@@ -23,7 +23,7 @@ export default {
     Footer,
     MainIMG,
     MainJumbotron,
-     SideBar,
+    //  SideBar,
   },
 };
 </script>

@@ -21,8 +21,8 @@
                 <h1>Result</h1>
                 <b-card>
                   <b-container fluid>
-                     <br />
-                   <ShowResult />
+                    <br />
+                    <ShowResult />
                   </b-container>
                 </b-card>
               </b-card-body>
@@ -35,8 +35,6 @@
               <b-col lg="mx-auto">
                 <RecDis />
               </b-col>
-
-             
             </b-col>
           </b-col>
         </b-row>
@@ -66,7 +64,7 @@ export default {
       hospital: "",
       className: null,
       confident: null,
-      imagePath: null
+      imagePath: null,
     };
   },
   name: "Home",
@@ -91,8 +89,8 @@ export default {
     this.className = this.$route.params.className;
     this.confident = this.$route.params.confidence;
     const picId = this.$route.params.picId;
-    this.imagePath = 'http://localhost:8080/api/file/' + picId;
-  }
+    this.imagePath = "http://localhost:8080/api/file/" + picId;
+  },
 };
 </script>
 

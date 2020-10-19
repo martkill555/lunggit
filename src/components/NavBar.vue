@@ -13,7 +13,7 @@
       <b-form inline>
         <label class="sr-only" for="inline-form-input-username">Username</label>
         <b-input-group prepend="Username" class="mb-2 mr-sm-2 mb-sm-0">
-          <b-input id="inline-form-input-username" placeholder="Enter your username"></b-input>
+          <b-input id="inline-form-input-username" class="username" placeholder="Enter your username"></b-input>
         </b-input-group>
 
         <label class="sr-only" for="inline-form-input-password">password</label>
@@ -57,6 +57,34 @@ export default {
   props: {
     msg: String,
   },
+  // login() {
+  //     const username = this.Username;
+  //     const password = this.password;
+  //     formdata.append("file_key", this.file, "file");
+  //     this.$axios({
+  //       method: "post",
+  //       url: "/api/",
+  //       data: formdata,
+  //       headers: {
+  //         "Content-Type": "multipart/formdata",
+  //       },
+  //     })
+  //       .then((res) => {
+  //         console.log(res.data);
+  //         const className = res.data.result.class;
+  //         const confidence = res.data.result.value.toFixed(2);
+  //         const picId = res.data.result.picId;
+  //         console.log('confidence', confidence);
+  //         _this.$router.push({
+  //           name: "Result",
+  //           params: { className: className, confidence: confidence, picId },
+  //         });
+  //       })
+  //       .catch((err) => {
+  //         throw new err();
+  //       });
+  //   },
+  // },
 };
 </script>
 

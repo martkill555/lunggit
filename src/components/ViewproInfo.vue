@@ -6,7 +6,7 @@
           <b-col mx-auto>
             <b-container fluid class="p-5 mx-auto" mx-auto>
               <b-img
-                src="https://scontent.fbkk10-1.fna.fbcdn.net/v/t31.0-8/1506182_618107671602087_1288753790_o.jpg?_nc_cat=110&_nc_sid=174925&_nc_eui2=AeFmlqGqA6BAGGtEcKoCOdSxIHG_-CCmQ_wgcb_4IKZD_PKosA1i3Xn3WGpIEhMTW3zwTIOIFE5ImHLXysTuNZgm&_nc_ohc=i3PnH50G2_sAX9yhVnk&_nc_ht=scontent.fbkk10-1.fna&oh=88d23a3ca063376c6763b2b60718ba79&oe=5F89CF6F"
+                src="https://www.img.in.th/images/8f1f92764550e52f5283e16e4d82dffe.png"
                 width="350"
                 rounded
                 alt="Rounded image"

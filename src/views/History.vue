@@ -6,7 +6,7 @@
       template(v-slot:header)
         b-nav(card-header tabs)
           b-nav-item(active)
-            b-icon(icon="file-earmark-text-fill" aria-hidden="true")
+            b-icon(icon="clock-history" aria-hidden="true")
             | History
       b-row.p-4
         b-col

@@ -12,7 +12,7 @@
     >
      <template v-slot:cell(action)="row">
         <b-button size="sm" @click="row.toggleDetails" class="mr-2" v-b-tooltip.hover title="Click to show more information">
-          {{ row.detailsShowing ? 'Hide' : 'More'}} Infomation
+          {{ row.detailsShowing ? 'Hide' : 'More'}} Information
         </b-button>
 
        
@@ -26,7 +26,7 @@
            
              </b-row>
  <b-col cols="3"></b-col>
-        <b-img id="home" src="https://scontent.fbkk10-1.fna.fbcdn.net/v/t1.15752-9/p1080x2048/106162906_692453531311069_6673661825374380304_n.jpg?_nc_cat=107&_nc_sid=b96e70&_nc_eui2=AeGR0yPJvcZmQSde4_0jHktCa46bYJfIGbdrjptgl8gZt8-vRHP3x1VpBcENAPe4AbWRWhPbr6L5-vD-gUePjOWe&_nc_ohc=EgsMYAy3imQAX93bdKY&_nc_ht=scontent.fbkk10-1.fna&tp=6&oh=66c8a0a9fb5d37e163656c494f41244d&oe=5F8703E5" 
+        <b-img id="home" src="https://www.img.in.th/images/3810e553098c5dc39ee03f0ca3fc2bc5.jpg" 
     width ="200"></b-img>
        
 

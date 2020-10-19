@@ -50,12 +50,31 @@
         <p>Are you sure that you want to discard the result information?</p>
       </template>
 
-      <template v-slot:modal-footer="{ Discard, cancel }">
+      <template v-slot:modal-footer="{ discard, cancel }">
         <!-- Button with custom close trigger value -->
         <b-button size="md" variant="outline-dark" @click="cancel()">Cancel</b-button>
-        <b-button size="md" variant="danger" @click="discard()">
+        <b-button size="md" variant="danger" @click="discard()" v-b-modal.modal-center3>
           <b-icon icon="trash-fill"></b-icon>Discard
         </b-button>
+      </template>
+    </b-modal>
+    <b-modal id="modal-center3" centered title="BootstrapVue">
+      <template v-slot:modal-header="{ }">
+        <!-- Emulate built in modal header close button action -->
+
+        <h4>Confirmation</h4>
+      </template>
+
+      <template v-slot:default="{  }">
+        <p>Your result was discarded successfuly</p>
+      </template>
+
+      <template v-slot:modal-footer="{  ok,  }">
+        <!-- Button with custom close trigger value -->
+
+        <router-link :to="{ name: 'Main' }">
+          <b-button size="md" variant="success" @click="ok()">Ok</b-button>
+        </router-link>
       </template>
     </b-modal>
   </div>
@@ -67,12 +86,12 @@ export default {
     async discard() {
       const picId = this.$route.params.picId;
       try {
-        await this.$axios.delete('/api/file/' + picId);
-        console.log('SUCCESS');
+        await this.$axios.delete("/api/file/" + picId);
+        console.log("SUCCESS");
       } catch (e) {
-        console.log('FAILED');
+        console.log("FAILED");
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>

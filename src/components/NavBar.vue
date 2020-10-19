@@ -1,62 +1,63 @@
 <template>
-
-  <div class = "font">
-    
-  <b-navbar toggleable type="dark" variant="dark"  >
-   
-     <router-link to="/"> <b-navbar-brand> <b-img src="https://cdn.discordapp.com/attachments/678634511214313493/737600952722522133/logo.png" 
-    width ="40"></b-img>Lungscan</b-navbar-brand></router-link>
+  <div class="font">
+    <b-navbar toggleable type="dark" variant="dark">
+      <router-link to="/">
+        <b-navbar-brand>
+          <b-img
+            src="https://cdn.discordapp.com/attachments/678634511214313493/737600952722522133/logo.png"
+            width="40"
+          ></b-img>Lungscan
+        </b-navbar-brand>
+      </router-link>
 
       <b-form inline>
-    <label class="sr-only" for="inline-form-input-username">Username</label>
-    <b-input-group prepend="Username" class="mb-2 mr-sm-2 mb-sm-0">
-      <b-input id="inline-form-input-username" placeholder="Enter your username"></b-input>
-      
-    </b-input-group>
+        <label class="sr-only" for="inline-form-input-username">Username</label>
+        <b-input-group prepend="Username" class="mb-2 mr-sm-2 mb-sm-0">
+          <b-input id="inline-form-input-username" placeholder="Enter your username"></b-input>
+        </b-input-group>
 
-    <label class="sr-only" for="inline-form-input-password">password</label>
-    <b-input-group prepend="Password" class="mb-2 mr-sm-2 mb-sm-0">
-      <b-input type="password" id="text-password" aria-describedby="password-help-block" placeholder="Enter your password"></b-input>
-    </b-input-group>
+        <label class="sr-only" for="inline-form-input-password">password</label>
+        <b-input-group prepend="Password" class="mb-2 mr-sm-2 mb-sm-0">
+          <b-input
+            type="password"
+            id="text-password"
+            aria-describedby="password-help-block"
+            placeholder="Enter your password"
+          ></b-input>
+        </b-input-group>
 
-    
+        <router-link :to="{ name: 'Main' }">
+          <b-link href="/Main.vue">
+            <b-button variant="danger">Login</b-button>
+          </b-link>
+        </router-link>
+      </b-form>
 
-    <router-link :to="{ name: 'Main' }"> <b-link href="/Main.vue"> <b-button variant="danger">Login</b-button></b-link></router-link>
-  </b-form>
-     
-    <b-collapse id="nav-collapse" is-nav>
-  
-
-      <!-- Right aligned nav items -->
-      <b-navbar-nav class="ml-auto">
-      
-
-
-      </b-navbar-nav>
-      
-    </b-collapse>
-  </b-navbar>
-</div>
+      <b-collapse id="nav-collapse" is-nav>
+        <!-- Right aligned nav items -->
+        <b-navbar-nav class="ml-auto"></b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
+  </div>
 </template>
 
 <script>
 export default {
-  
   data() {
-      return {
-        userId: ''
-      }
+    return {
+      userId: "",
+    };
+  },
+  computed: {
+    validation() {
+      return this.userId.length > 4 && this.userId.length < 13;
     },
-    computed: {
-      validation() {
-        return this.userId.length > 4 && this.userId.length < 13
-      }
-    },
-  name: 'NavBar',
+  },
+  name: "NavBar",
   props: {
-    msg: String
-  }
-}
+    msg: String,
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -92,6 +93,5 @@ h5 {
 <style>
 #font {
   font-family: maven pro;
- 
 }
 </style>

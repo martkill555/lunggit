@@ -16,6 +16,8 @@
               b-card
                 b-container(fluid)
                   HistoryBox
+                  HistorySidebar
+                
   Footer
 </template>
 
@@ -24,6 +26,8 @@
 import Nav from "@/components/Nav.vue";
 import Footer from "@/components/Footer.vue";
 import HistoryBox from "@/components/HistoryBox.vue";
+import HistorySidebar from "@/components/HistorySidebar.vue";
+
 
 export default {
   name: "Home",
@@ -31,6 +35,7 @@ export default {
     Nav,
     Footer,
     HistoryBox,
+    HistorySidebar
   },
 };
 </script>

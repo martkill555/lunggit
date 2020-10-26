@@ -6,19 +6,30 @@
           <b-img
             src="https://cdn.discordapp.com/attachments/678634511214313493/737600952722522133/logo.png"
             width="40"
-          ></b-img>Lungscan
+          ></b-img
+          >Lungscan
         </b-navbar-brand>
       </router-link>
 
       <b-form inline>
-        <label class="sr-only" for="inline-form-input-username">Username</label>
+        <label class="sr-only" id="username" for="inline-form-input-username"
+          >Username</label
+        >
         <b-input-group prepend="Username" class="mb-2 mr-sm-2 mb-sm-0">
-          <b-input id="inline-form-input-username" class="username" placeholder="Enter your username"></b-input>
+          <b-input
+            v-model="username"
+            id="inline-form-input-username"
+            class="username"
+            placeholder="Enter your username"
+          ></b-input>
         </b-input-group>
 
-        <label class="sr-only" for="inline-form-input-password">password</label>
+        <label class="sr-only" id="password" for="inline-form-input-password"
+          >password</label
+        >
         <b-input-group prepend="Password" class="mb-2 mr-sm-2 mb-sm-0">
           <b-input
+          v-model="password"
             type="password"
             id="text-password"
             aria-describedby="password-help-block"
@@ -26,11 +37,11 @@
           ></b-input>
         </b-input-group>
 
-        <router-link :to="{ name: 'Main' }">
-          <b-link href="/Main.vue">
-            <b-button variant="danger">Login</b-button>
-          </b-link>
-        </router-link>
+        <!-- <router-link :to="{ name: 'Main' }"> -->
+          <!-- <b-link href="/Main.vue"> -->
+            <b-button variant="danger" @click="login()">Login</b-button>
+          <!-- </b-link> -->
+        <!-- </router-link> -->
       </b-form>
 
       <b-collapse id="nav-collapse" is-nav>
@@ -42,10 +53,17 @@
 </template>
 
 <script>
+import { LungscanAPI } from '../../api/lungscanAPI'
+const api = new LungscanAPI({
+  baseUri: 'http://localhost:8080'
+});
+
 export default {
   data() {
     return {
       userId: "",
+      username: "",
+      password: "",
     };
   },
   computed: {
@@ -57,34 +75,15 @@ export default {
   props: {
     msg: String,
   },
-  // login() {
-  //     const username = this.Username;
-  //     const password = this.password;
-  //     formdata.append("file_key", this.file, "file");
-  //     this.$axios({
-  //       method: "post",
-  //       url: "/api/",
-  //       data: formdata,
-  //       headers: {
-  //         "Content-Type": "multipart/formdata",
-  //       },
-  //     })
-  //       .then((res) => {
-  //         console.log(res.data);
-  //         const className = res.data.result.class;
-  //         const confidence = res.data.result.value.toFixed(2);
-  //         const picId = res.data.result.picId;
-  //         console.log('confidence', confidence);
-  //         _this.$router.push({
-  //           name: "Result",
-  //           params: { className: className, confidence: confidence, picId },
-  //         });
-  //       })
-  //       .catch((err) => {
-  //         throw new err();
-  //       });
-  //   },
-  // },
+  methods:{
+    login: async function () {
+      const response = await api.usersController.getUserByUsername({
+        username: this.username,
+        password: this.password,
+      })
+      console.log(response);
+    },
+  },
 };
 </script>
 
@@ -116,9 +115,6 @@ h4 {
 h5 {
   color: #42b983;
 }
-</style>
-
-<style>
 #font {
   font-family: maven pro;
 }

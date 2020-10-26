@@ -2,7 +2,7 @@
   <div class="Font">
     <b-navbar toggleable type="dark" variant="dark">
       <router-link :to="{ name: 'Main' }">
-        <b-navbar-brand>
+        <b-navbar-brand v-b-tooltip.hover title="Lungscan">
           <b-img
             src="https://cdn.discordapp.com/attachments/678634511214313493/737600952722522133/logo.png"
             width="40"

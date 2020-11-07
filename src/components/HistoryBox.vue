@@ -1,24 +1,69 @@
 <template>
     <div>
-<b-table
+ <b-container fluid>
+    <!-- User Interface controls -->
+    
+     
+
+     
+
+      <b-col lg="4"   >
+        <b-form-group
+          label="Search"
+          label-cols-sm="3"
+          label-align-sm="right"
+          label-size="sm"
+          label-for="filterInput"
+          class="mb-0"
+        >
+          <b-input-group size="sm">
+            <b-form-input
+              v-model="filter"
+              type="search"
+              id="filterInput"
+              placeholder="Type to Search"
+            ></b-form-input>
+            <b-input-group-append>
+              <b-button :disabled="!filter" @click="filter = ''">Clear</b-button>
+            </b-input-group-append>
+          </b-input-group>
+        </b-form-group>
+      </b-col>
+
+     
+
+      
+
+    
+ 
+<br />
+    <!-- Main table element -->
+    <b-table
+      show-empty
+      small
+      stacked="md"
       :items="items"
       :fields="fields"
+      :current-page="currentPage"
+      :per-page="perPage"
+      :filter="filter"
+      :filter-included-fields="filterOn"
       :sort-by.sync="sortBy"
       :sort-desc.sync="sortDesc"
-      sort-icon-left
-      striped 
-      responsive="sm" 
-      
+      :sort-direction="sortDirection"
+      @filtered="onFiltered"
     >
-     <template v-slot:cell(action)="row">
-        <b-button size="sm" @click="row.toggleDetails" class="mr-2" v-b-tooltip.hover title="Click to show more information">
-          {{ row.detailsShowing ? 'Hide' : 'More'}} Information
-        </b-button>
+      <template #cell(name)="row">
+        {{ row.item.name }} 
+      </template>
 
-       
+  <template #cell(actions)="row">
+        <b-button size="sm" @click="row.toggleDetails" class="mr-2" v-b-tooltip.hover title="Click to show more information">
+           {{ row.detailsShowing ? 'Hide' : 'More'}} Information
+         </b-button>
        
       </template>
-    <template v-slot:row-details="row">
+      <template v-slot:row-details="row">
         <b-card>
 
  <b-row class="mb-2">
@@ -26,8 +71,8 @@
            
              </b-row>
  <b-col cols="3"></b-col>
-        <b-img id="home" src="https://www.img.in.th/images/3810e553098c5dc39ee03f0ca3fc2bc5.jpg" 
-    width ="200"></b-img>
+        <b-button v-b-modal.modal-center3> <b-img id="home" src="https://www.img.in.th/images/3810e553098c5dc39ee03f0ca3fc2bc5.jpg" 
+    width ="200"></b-img></b-button>
        
 
           
@@ -54,7 +99,31 @@
         
 
            <b-button variant="info" v-b-modal.modal-center1 ><b-icon icon="chat-text-fill" aria-hidden="true"></b-icon>Comment </b-button>
+
+
+      <b-modal id="modal-center3" centered title="BootstrapVue">
+    <template v-slot:modal-header="{ }">
+      <!-- Emulate built in modal header close button action -->
       
+     <h5>Case ID: <b-badge variant="info">{{ row.item.caseID }}</b-badge></h5>
+    </template>
+
+    <template v-slot:default="{  }" >
+     
+      <b-img id="home" src="https://www.img.in.th/images/3810e553098c5dc39ee03f0ca3fc2bc5.jpg" 
+    width ="465"></b-img>
+    </template>
+
+    <template v-slot:modal-footer="{  cancel }">
+     
+      
+      <!-- Button with custom close trigger value -->
+      <b-button size="md"  variant="danger" @click="cancel()">
+        Close
+      </b-button>
+      
+    </template>
+  </b-modal>
    <b-modal id="modal-center1" centered title="BootstrapVue">
     <template v-slot:modal-header="{ }">
       <!-- Emulate built in modal header close button action -->
@@ -161,41 +230,34 @@
    </b-card>
       </template>
     </b-table>
+    <br />
+  <b-col sm="7" md="6" class="mx-auto">
+        <b-pagination
+          v-model="currentPage"
+          :total-rows="totalRows"
+          :per-page="perPage"
+          align="fill"
+          size="sm"
+          class="my-0"
+        ></b-pagination>
+      </b-col>
+
+    <!-- Info modal -->
+   
+  </b-container>
         </div>
 </template>
 
 
 <script>
-// @ is an alias to /src
-
-
 
 export default {
-    computed: {
-      nameState2() {
-        return this.name.length > 2 ? true : false
-      }
-    },
     data() {
       return {
         detect: ['Negative', 'Positive'],
         confident: ['Weakness', 'Strong'],
-          name: '',
-        nameState: null,
-        submittedNames: [],
-          sortBy: 'age',
-        sortDesc: false,
-        fields: [
-          { key: 'name', sortable: true },
-          { key: 'caseID', sortable: true },          
-          { key: 'date', sortable: true },          
-          { key: 'detect', sortable: true ,variant: 'danger'},
-          { key: 'comment', sortable: true ,variant: 'warning'},
-          { key: 'action', sortable: false  },
-          //{ key: 'detectDate', hidden }
-        ],
         items: [
-          { date: '20/05/2020', name: 'Dickerson Macdonald', caseID: '1040', detect: 'Positive', comment: '-- --',detectDate: '20/05/2020'},
+           { date: '20/05/2020', name: 'Dickerson Macdonald', caseID: '1040', detect: 'Positive', comment: '-- --',detectDate: '20/05/2020'},
           { date: '25/08/2020', name: 'Larsen Shaw', caseID: '1501' , detect: 'Negative', comment: '-- --',detectDate: '20/05/2020'},
           { date: '2/12/2020', name: 'Geneva Wilson', caseID: '1677', detect: 'Positive' , comment: '-- --',detectDate: '20/05/2020'},
           { date: '11/01/2020', name: 'Jami Carney', caseID: '1599', detect: 'Negative', comment: '-- --',detectDate: '20/05/2020' },
@@ -203,39 +265,69 @@ export default {
           {  date: '21/02/2020', name: 'New Dhan', caseID: '0950', detect: 'Positive', comment: '-- --' ,detectDate: '20/05/2020'},
           { date: '08/09/2020', name: 'Cheetah Srihan', caseID: '2104', detect: 'Negative', comment: '-- --' ,detectDate: '20/05/2020'},
           { date: '31/12/2020', name: 'Mormart Handsome', caseID: '1978', detect: 'Positive', comment: '-- --' ,detectDate: '20/05/2020'}
-        ],tableVariants: [
-          'primary',
-          'secondary',
-          'info',
-          'danger',
-          'warning',
-          'success',
-          'light',
-          'dark'
         ],
-        striped: false,
-        bordered: false,
-        borderless: false,
-        outlined: false,
-        small: false,
-        hover: false,
-        dark: false,
-        fixed: false,
-        footClone: false,
-        headVariant: null,
-        tableVariant: '',
-        noCollapse: false
+        fields: [
+          { key: 'caseID', sortable: true },  
+          { key: 'name', label: 'Name', sortable: true, sortDirection: 'desc' },
+           
+            
+          { key: 'date', label: 'Date', sortable: true, class: 'text-center' },
+          {
+            key: 'detect',
+            label: 'Detect',
+            sortable: true,
+            sortByFormatted: true,
+            filterByFormatted: true
+          },
+          { key: 'comment', sortable: true },
+          { key: 'actions', label: 'Actions' }
+        ],
+        totalRows: 1,
+        currentPage: 1,
+        perPage: 5,
+        pageOptions: [5, 10, 15],
+        sortBy: '',
+        sortDesc: false,
+        sortDirection: 'asc',
+        filter: null,
+        filterOn: [],
+        infoModal: {
+          id: 'info-modal',
+          title: '',
+          content: ''
+        }
       }
-             
     },
- 
-  components: {
-   
-  
-  },
-  methods: {
-   
-    
+    computed: {
+      sortOptions() {
+        // Create an options list from our fields
+        return this.fields
+          .filter(f => f.sortable)
+          .map(f => {
+            return { text: f.label, value: f.key }
+          })
+      }
+    },
+    mounted() {
+      // Set the initial number of items
+      this.totalRows = this.items.length
+    },
+    methods: {
+      
+      info(item, index, button) {
+        this.infoModal.title = `Row index: ${index}`
+        this.infoModal.content = JSON.stringify(item, null, 2)
+        this.$root.$emit('bv::show::modal', this.infoModal.id, button)
+      },
+      resetInfoModal() {
+        this.infoModal.title = ''
+        this.infoModal.content = ''
+      },
+      onFiltered(filteredItems) {
+        // Trigger pagination to update the number of buttons/pages due to filtering
+        this.totalRows = filteredItems.length
+        this.currentPage = 1
+      }
+    }
   }
-}
 </script>

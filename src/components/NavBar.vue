@@ -68,7 +68,7 @@ export default {
   },
   computed: {
     validation() {
-      return this.userId.length > 4 && this.userId.length < 13;
+      return this.name.length > 4 && this.name.length < 13;
     },
   },
   name: "NavBar",
@@ -81,7 +81,9 @@ export default {
         username: this.username,
         password: this.password,
       })
+       localStorage.setItem('Token', response.access_token);
       console.log(response);
+      this.$router.push({ name: 'Main' });
     },
   },
 };

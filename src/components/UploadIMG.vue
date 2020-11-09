@@ -59,7 +59,7 @@
                       </b-col>
                       <b-col sm="9">
                         <b-list-group>
-                          <b-list-group-item>06/07/2542</b-list-group-item>
+                          <b-list-group-item>{{DOB}}</b-list-group-item>
                         </b-list-group>
                       </b-col>
                     </b-row>
@@ -88,6 +88,7 @@
         </b-container>
       </b-card>
     </b-card-body>
+    <button @click="con()">consolelog</button>
     <b-container>
       <b-button variant="danger" @click="sendToScan()" size="lg">Screen</b-button>
     </b-container>
@@ -116,7 +117,8 @@ export default {
   data() {
     return {
       filter: null,
-      name: "",
+      firstname: "",
+      DOB: "",
       tel: "",
       hospital: "",
       lastname: "",
@@ -151,6 +153,11 @@ export default {
     },
     getData() {
       this.$axios.get("");
+    },
+    con(){
+      console.log(this.firstname),
+      console.log(this.lastname),
+      console.log(this.DOB)
     },
     urltoFile(url, filename, mimeType) {
       mimeType = mimeType || (url.match(/^data:([^;]+);/) || "")[1];
@@ -189,6 +196,12 @@ export default {
           throw new err();
         });
     },
+    mounted(){
+      this.firstname = this.$route.params.firstname;
+      this.lastname = this.$route.params.lastname;
+      this.DOB = this.$route.params.DOB;
+    }
+    
   },
 };
 </script>

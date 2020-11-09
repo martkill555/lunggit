@@ -78,11 +78,15 @@ export default {
     };
   },
   methods: {
+    logout(){
+      localStorage.removeItem('Token');
+      this.$router.push({ name: 'Main' });
+    },
     showMsgBoxTwo() {
       this.boxTwo = "";
       this.$router.push = "";
       this.$root.$bvModal
-        .msgBoxConfirm("You will be reture to the login screen.", {
+        .msgBoxConfirm("You will be return to the login screen.", {
           title: "Confirm Logout",
           size: "sm",
           buttonSize: "sm",

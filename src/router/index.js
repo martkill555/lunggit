@@ -11,48 +11,57 @@ import Predict from '../views/Predict.vue'
 import EmptyView from '../views/EmptyView.vue'
 
 Vue.use(VueRouter)
+const guardAuth = async (to, from, next) => {
+  if (localStorage.getItem('Token') || sessionStorage.getItem('Token')) {
+    next(); // TODO: implement token expire check
+  } else {
+    next({ name: 'Home' });
+  }
+};
 
   const routes = [
   {
     path: '/',
     name: 'Home',
+    
     component: Home
   },
   {
     path: '/app',
     name: 'Main',
- 
+    beforeEnter: guardAuth,
     component: Main
   },
   {
     path: '/history',
     name: 'History',
- 
+    beforeEnter: guardAuth,
     component: History
   }
   ,
   {
     path: '/screen',
     name: 'Screen',
- 
+    beforeEnter: guardAuth,
     component: Screen
   }
   ,
   {
     path: '/viewprofile',
     name: 'ViewProfile',
- 
+    beforeEnter: guardAuth,
     component: ViewProfile
   }
   ,
   {
     path: '/editProfile',
     name: 'EditProfile',
- 
+    beforeEnter: guardAuth,
     component: EditProfile
   },
   {
     path: '/result',
+    beforeEnter: guardAuth,
     component: EmptyView,
     children: [
       {
@@ -70,8 +79,15 @@ Vue.use(VueRouter)
   {
     path: '/predict',
     name: 'Predict',
- 
-    component:Predict
+    beforeEnter: guardAuth,
+    component:Predict,
+    children: [
+    {
+      path: ':firstname/:lastname/:DOB',
+      name: 'Result',
+      component: Result
+    },
+    ],
   }
 ]
 

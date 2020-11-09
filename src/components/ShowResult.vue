@@ -22,7 +22,7 @@
         </h5>
 
         <h5 class="my-4">
-          Confident :
+          Probability :
           <b-badge variant="primary">{{confident}} %</b-badge>
           <!-- <b-icon icon="exclamation-circle-fill" variant="danger"></b-icon> -->
         </h5>

@@ -90,7 +90,7 @@ const guardAuth = async (to, from, next) => {
     },
     ],
  
-    component:Predict
+    // component:Predict
   },
   {
     path: '/historyStaff',

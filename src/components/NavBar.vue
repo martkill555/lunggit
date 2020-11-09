@@ -29,7 +29,7 @@
         >
         <b-input-group prepend="Password" class="mb-2 mr-sm-2 mb-sm-0">
           <b-input
-          v-model="password"
+            v-model="password"
             type="password"
             id="text-password"
             aria-describedby="password-help-block"
@@ -38,9 +38,9 @@
         </b-input-group>
 
         <!-- <router-link :to="{ name: 'Main' }"> -->
-          <!-- <b-link href="/Main.vue"> -->
-            <b-button variant="danger" @click="login()">Login</b-button>
-          <!-- </b-link> -->
+        <!-- <b-link href="/Main.vue"> -->
+        <b-button variant="danger" @click="login()">Login</b-button>
+        <!-- </b-link> -->
         <!-- </router-link> -->
       </b-form>
 
@@ -53,9 +53,9 @@
 </template>
 
 <script>
-import { LungscanAPI } from '../../api/lungscanAPI'
+import { LungscanAPI } from "../../api/lungscanAPI";
 const api = new LungscanAPI({
-  baseUri: 'http://localhost:8080'
+  baseUri: "http://localhost:8080",
 });
 
 export default {
@@ -75,15 +75,25 @@ export default {
   props: {
     msg: String,
   },
-  methods:{
+  methods: {
     login: async function () {
+      if (this.username==""&&this.password == "") {
+       alert("Please fill username and password")
+      }
+      else if (this.username == "") {
+        alert("Please fill username");
+      }
+      else if (this.password == "") {
+        alert("Please fill password");
+      }
+      
       const response = await api.usersController.getUserByUsername({
         username: this.username,
         password: this.password,
-      })
-       localStorage.setItem('Token', response.access_token);
+      });
+      localStorage.setItem("Token", response.access_token);
       console.log(response);
-      this.$router.push({ name: 'Main' });
+      this.$router.push({ name: "Main" });
     },
   },
 };

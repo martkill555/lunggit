@@ -10,7 +10,7 @@
       img-height="480"
     >
       <b-carousel-slide
-        img-src="https://www.img.in.th/images/5ec88aea4d815376e15303068badf0d6.jpg"
+        img-src="/assets/Slide1.jpg"
       ></b-carousel-slide>
       <b-carousel-slide
         caption

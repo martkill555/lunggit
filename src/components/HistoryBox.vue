@@ -71,7 +71,7 @@
            
              </b-row>
  <b-col cols="3"></b-col>
-        <b-button v-b-modal.modal-center3> <b-img id="home" src="https://www.img.in.th/images/3810e553098c5dc39ee03f0ca3fc2bc5.jpg" 
+        <b-button v-b-modal.modal-center3> <b-img id="home" src="https://sv1.picz.in.th/images/2020/11/09/bolRoP.jpg" 
     width ="200"></b-img></b-button>
        
 
@@ -110,7 +110,7 @@
 
     <template v-slot:default="{  }" >
      
-      <b-img id="home" src="https://www.img.in.th/images/3810e553098c5dc39ee03f0ca3fc2bc5.jpg" 
+      <b-img id="home" src="https://sv1.picz.in.th/images/2020/11/09/bolRoP.jpg" 
     width ="465"></b-img>
     </template>
 

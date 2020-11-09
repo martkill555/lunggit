@@ -36,7 +36,7 @@
                       </b-col>
                       <b-col sm="9">
                         <b-list-group>
-                          <input v-model="firstname" placeholder="firstname" />
+                          <input v-model="firstname" placeholder="firstname" disabled />
                         </b-list-group>
                       </b-col>
                     </b-row>
@@ -47,8 +47,7 @@
                       </b-col>
                       <b-col sm="9">
                         <b-list-group>
-                          <input v-model="lastname" placeholder="lastname" />
-                          <p>{{lastname}}</p>
+                          <input v-model="lastname" placeholder="lastname" disabled />
                         </b-list-group>
                       </b-col>
                     </b-row>
@@ -59,7 +58,7 @@
                       </b-col>
                       <b-col sm="9">
                         <b-list-group>
-                          <b-list-group-item>{{DOB}}</b-list-group-item>
+                         <input v-model="DOB" placeholder="Date of birth" type="date" disabled />
                         </b-list-group>
                       </b-col>
                     </b-row>
@@ -117,11 +116,14 @@ export default {
   data() {
     return {
       filter: null,
-      firstname: "",
-      DOB: "",
+      // firstname: "",
+      // DOB: "",
       tel: "",
       hospital: "",
-      lastname: "",
+      // lastname: "",
+      firstname: this.$route.params.firstname,
+      lastname: this.$route.params.lastname,
+      DOB: this.$route.params.DOB
     };
   },
   name: "Home",
@@ -196,11 +198,7 @@ export default {
           throw new err();
         });
     },
-    mounted(){
-      this.firstname = this.$route.params.firstname;
-      this.lastname = this.$route.params.lastname;
-      this.DOB = this.$route.params.DOB;
-    }
+ 
     
   },
 };

@@ -133,6 +133,11 @@ export default {
           throw new err();
         });
     },
+       mounted(){
+      this.firstname = this.$route.params.firstname;
+      this.lastname = this.$route.params.lastname;
+      this.DOB = this.$route.params.DOB;
+    },
   },
 };
 </script>

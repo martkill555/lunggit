@@ -34,13 +34,13 @@
           </b-form-group>
         </form>
         <label for="datepicker-full-width">Date of birth</label>
-        <b-form-datepicker
-          id="datepicker-full-width"
-          v-model="DOB"
-          menu-class="w-100"
-          calendar-width="100%"
-          class="mb-2"
-        ></b-form-datepicker>
+           <b-form-input
+              id="date"
+              v-model="DOB"
+              :state="dateState"
+              required
+              type="date"
+            ></b-form-input>
       </template>
 
       <template v-slot:modal-footer="{ cancel }">
@@ -95,7 +95,7 @@ export default {
           params: {
             firstname: this.firstname,
             lastname: this.lastname,
-            DOB: this.dOB,
+            DOB: this.DOB,
           },
         });
     },

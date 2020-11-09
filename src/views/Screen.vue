@@ -18,28 +18,25 @@
           <b-col>
             <h3>Please select your patient...</h3>
             <b-col>
-              
               <b-card-body>
-                
                 <b-card width="50">
                   <b-col lg="10" class="my-1">
                     <br /><br /><br /><br /><br />
-                   <SearchID />
+                    <SearchID />
                   </b-col>
-                <br />
-<br />   <br /><br />
+                  <br />
+                  <br />
+                  <br /><br />
                   <Register />
                 </b-card>
                 <br />
               </b-card-body>
               <b-container>
-               <NextButton />
+                <NextButton />
               </b-container>
             </b-col>
           </b-col>
         </b-row>
-
-        
       </b-card>
     </div>
 
@@ -55,9 +52,7 @@ import Register from "@/components/Register.vue";
 import NextButton from "@/components/NextButton.vue";
 
 export default {
-  computed: {
-    
-  },
+  computed: {},
   data() {
     return {
       filter: null,

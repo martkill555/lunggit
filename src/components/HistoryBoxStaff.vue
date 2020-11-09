@@ -91,14 +91,11 @@
 
 
 
-          <b-row class="mb-2">
-            <b-col sm="3" class="text-sm-right"><b>Specialist Comment:</b></b-col>
-            <b-col>{{ row.item.comment }}</b-col>
-          </b-row>
+         
 
         
 
-           <b-button variant="info" v-b-modal.modal-center1 ><b-icon icon="chat-text-fill" aria-hidden="true"></b-icon>Comment </b-button>
+           
 
 
       <b-modal id="modal-center3" centered title="BootstrapVue">

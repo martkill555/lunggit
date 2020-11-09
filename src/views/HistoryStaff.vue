@@ -15,7 +15,7 @@
               h1 History
               b-card
                 b-container(fluid)
-                  HistoryBox
+                  HistoryBoxStaff
                  
                 
   Footer
@@ -25,7 +25,7 @@
 // @ is an alias to /src
 import Nav from "@/components/Nav.vue";
 import Footer from "@/components/Footer.vue";
-import HistoryBox from "@/components/HistoryBox.vue";
+import HistoryBoxStaff from "@/components/HistoryBoxStaff.vue";
 
 
 
@@ -34,7 +34,7 @@ export default {
   components: {
     Nav,
     Footer,
-    HistoryBox,
+    HistoryBoxStaff,
  
   },
 };

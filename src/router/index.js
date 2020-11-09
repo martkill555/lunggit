@@ -9,6 +9,7 @@ import EditProfile from '../views/EditProfile.vue'
 import Result from '../views/Result.vue'
 import Predict from '../views/Predict.vue'
 import EmptyView from '../views/EmptyView.vue'
+import HistoryStaff from '../views/HistoryStaff.vue'
 
 Vue.use(VueRouter)
 const guardAuth = async (to, from, next) => {
@@ -88,6 +89,14 @@ const guardAuth = async (to, from, next) => {
       component: Result
     },
     ],
+ 
+    component:Predict
+  },
+  {
+    path: '/historyStaff',
+    name: 'HistoryStaff',
+ 
+    component:HistoryStaff
   }
 ]
 
